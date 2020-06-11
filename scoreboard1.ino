@@ -160,7 +160,7 @@ void update_scoreboard()
 
 
    //build the string for shifter set 1
-    memset(tempString, '\0', 6);
+    memset(tempString, '\0', 7);
     strcpy(tempString,ScoreVisitor);
     strcat(tempString,Innings);
     strcat(tempString,ScoreHome);
