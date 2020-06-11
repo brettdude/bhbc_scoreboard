@@ -115,24 +115,24 @@
 		
 		function Innings_change(direction,amount) {
 			if(direction=="plus") {
-				if(Innings+amount>9) {
-					swal('Cannot be done!','Innings cannot be greater than 9','warning')
+				if(Innings+amount>99) {
+					swal('Cannot be done!','Innings cannot be greater than 99','warning')
 				} else {
 					Innings=Innings+amount;
-					$('#Innings_count').html(pad(Innings,1));
+					$('#Innings_count').html(pad(Innings,2));
 				}
 			}
 			if(direction=="minus") {
 				if(Innings-amount<0) {
 					Innings=0;
-					$('#Innings_count').html(pad(Innings,1));
+					$('#Innings_count').html(pad(Innings,2));
 				} else {
 					Innings=Innings-amount;
-					$('#Innings_count').html(pad(Innings,1));
+					$('#Innings_count').html(pad(Innings,2));
 				}
 			}
 			if(direction=="zero") {
-				if(amount=="admin") { Innings=0; $('#Innings_count').html(pad(Innings,1)); return; }
+				if(amount=="admin") { Innings=0; $('#Innings_count').html(pad(Innings,2)); return; }
 				swal({
 					  title: 'You sure?',
 					  text: "This will ZERO the Innings",
@@ -145,7 +145,7 @@
 					}).then(function(isConfirm) {
 					  if (isConfirm) {
 						Innings=0;
-						$('#Innings_count').html(pad(Innings,1));
+						$('#Innings_count').html(pad(Innings,2));
 					  }
 					})
 			}
@@ -405,9 +405,11 @@
                 </h3>
                 <p class="leddisplay" id="Innings_count">442</p>
 				<div class="btn-group" role="group" aria-label="Basic example">
+				  <a href="javascript:Innings_change('top')" class="btn btn-secondary">Top</a>
 				  <a href="javascript:Innings_change('plus',1)" class="btn btn-secondary">+ 1</a>
 				  <a href="javascript:Innings_change('zero',0)" class="btn btn-secondary">Zero</a>
 				  <a href="javascript:Innings_change('minus',1)" class="btn btn-secondary">- 1</a>
+				  <a href="javascript:Innings_change('bottom')" class="btn btn-secondary">Bottom</a>
 				</div>
             </div>
 			
@@ -479,7 +481,7 @@
 		$( document ).ready(function() {
 			// Initally set the scores to zero
 		    $('#ScoreHome_count').html(pad(ScoreHome, 2));
-			$('#Innings_count').html(pad(Innings,1));
+			$('#Innings_count').html(pad(Innings,2));
 			$('#ScoreVisitor_count').html(pad(ScoreVisitor,2));
 			$('#Balls_count').html(pad(Balls,1));
 			$('#Strikes_count').html(pad(Strikes,1));
@@ -493,18 +495,18 @@
                 success: function (data) { 
 					if(data.length>0) { // If it has, update the scores with the saved data
 						ScoreHome=Number(data.substring(0, 2));
-						Innings=Number(data.substring(2, 3));
-						ScoreVisitor=Number(data.substring(3, 5));
-						Balls=Number(data.substring(5, 6));
-						Strikes=Number(data.substring(6, 7));
-						Outs=Number(data.substring(7, 8));
+						Innings=Number(data.substring(2, 4));
+						ScoreVisitor=Number(data.substring(4, 6));
+						Balls=Number(data.substring(6, 7));
+						Strikes=Number(data.substring(7, 8));
+						Outs=Number(data.substring(8, 9));
 						submitForm();
 					} else {
 						// If there isn't anything, don't do anything
 					}
 						// Add any greyed out digits to the web interface
 						$('#ScoreHome_count').html(pad(ScoreHome,2));
-						$('#Innings_count').html(pad(Innings,1));
+						$('#Innings_count').html(pad(Innings,2));
 						$('#ScoreVisitor_count').html(pad(ScoreVisitor,2));
 						$('#Balls_count').html(pad(Balls,1));
 						$('#Strikes_count').html(pad(Strikes,1));
