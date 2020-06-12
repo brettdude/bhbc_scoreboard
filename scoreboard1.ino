@@ -48,6 +48,7 @@ char command_separator = '#';
 
 // set up the chharacter arrays we will use later
 char ScoreVisitor[3] = { '\0' };
+char Topbot[2] = { '\0' };
 char Innings[3] = { '\0' };
 char ScoreHome[3] = { '\0' };
 char Balls1[2] = { '\0' };
@@ -57,6 +58,7 @@ char Outs[2] = { '\0' };
 
 // set up the headings 
 char ScoreVisitorHeading[] = "Visitor Score:";
+char TopbotHeading[] = "Innings Top-Bot:";
 char InningsHeading[] = "Inning:";
 char ScoreHomeHeading[] = "Score Home Score:";
 char Balls1Heading[] = "Balls1:";
@@ -114,6 +116,13 @@ void update_scoreboard()
     cmdMessenger.sendCmd(kACK, ScoreVisitorHeading);
     cmdMessenger.sendCmd(kACK, ScoreVisitor);
     
+    // Innings Top or Bottom
+    memset(buf, '\0', 4);
+    cmdMessenger.copyString(buf, 4);
+    strcpy(Topbot,buf);
+    cmdMessenger.sendCmd(kACK, TopbotHeading);
+    cmdMessenger.sendCmd(kACK, Topbot);
+    
     // Innings
     memset(buf, '\0', 4);
     cmdMessenger.copyString(buf, 4);
@@ -160,8 +169,9 @@ void update_scoreboard()
 
 
    //build the string for shifter set 1
-    memset(tempString, '\0', 7);
+    memset(tempString, '\0', 9);
     strcpy(tempString,ScoreVisitor);
+    strcat(tempString,Topbot);
     strcat(tempString,Innings);
     strcat(tempString,ScoreHome);
     shifterSet1.display(tempString);
