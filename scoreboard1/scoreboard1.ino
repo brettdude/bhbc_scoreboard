@@ -169,7 +169,7 @@ void update_scoreboard()
 
 
    //build the string for shifter set 1
-    memset(tempString, '\0', 9);
+    memset(tempString, '\0', 6);
     strcpy(tempString,ScoreVisitor);
     strcat(tempString,Topbot);
     strcat(tempString,Innings);
