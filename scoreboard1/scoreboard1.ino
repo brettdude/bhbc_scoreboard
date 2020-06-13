@@ -265,7 +265,7 @@ void setup()
   // Set the displays to 000 on boot
   //shifterSet1.display("000000000");
   //shifterSet2.display("000000");
-  shifterSet1.display("-00-0000");
+  shifterSet1.display("-00-0-0");
   shifterSet2.display("0000");
 }
 
