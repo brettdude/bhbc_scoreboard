@@ -30,6 +30,24 @@
 			}		
 		}
 		
+		// Customer formatting for the Innings to indicate Top or Bottom
+		function padInnings(num, topbot) {
+			num=num.toString();
+			if(topbot==0){
+				if(num.length==1) {
+					return "<font color='0000ff'>T</font><font color='dddddd'>8</font>" + num;
+				} else {
+					return "<font color='0000ff'>T</font>" + num;
+				}
+			} else {
+				if(num.length==1) {
+					return "<font color='0000ff'>B</font><font color='dddddd'>8</font>" + num;
+				} else {
+					return "<font color='0000ff'>B</font>" + num;
+				}
+			}
+		}
+
 		// Ensures we are sending the right sized string to the scoreboard to display - The scoreboard currently expects the string to be correct when it arrives at the Arduino so, this makes sure it is
 		function padToSend(num, size) {
 			num=num.toString();

@@ -120,20 +120,20 @@
 					swal('Cannot be done!','Innings cannot be greater than 99','warning')
 				} else {
 					Innings=Innings+amount;
-					$('#Innings_count').html(pad(Innings,2));
+					$('#Innings_count').html(padInnings(Innings,Topbot));
 				}
 			}
 			if(direction=="minus") {
 				if(Innings-amount<0) {
 					Innings=0;
-					$('#Innings_count').html(pad(Innings,2));
+					$('#Innings_count').html(padInnings(Innings,Topbot));
 				} else {
 					Innings=Innings-amount;
-					$('#Innings_count').html(pad(Innings,2));
+					$('#Innings_count').html(padInnings(Innings,Topbot));
 				}
 			}
 			if(direction=="zero") {
-				if(amount=="admin") { Innings=0; $('#Innings_count').html(pad(Innings,2)); return; }
+				if(amount=="admin") { Innings=0;  $('#Innings_count').html(padInnings(Innings,Topbot)); return; }
 				swal({
 					  title: 'You sure?',
 					  text: "This will ZERO the Innings",
@@ -146,17 +146,17 @@
 					}).then(function(isConfirm) {
 					  if (isConfirm) {
 						Innings=0;
-						$('#Innings_count').html(pad(Innings,2));
+						$('#Innings_count').html(padInnings(Innings,Topbot));
 					  }
 					})
 			}
 			if(direction=="top") {
 				Topbot=0;
-				$('#Topbot').html(pad(Topbot,1));
+				$('#Innings_count').html(padInnings(Innings,Topbot));
 			}
 			if(direction=="bottom") {
 				Topbot=1;
-				$('#Topbot').html(pad(Topbot,1));
+				$('#Innings_count').html(padInnings(Innings,Topbot));
 			}
 			updatetimer=5;
 		}
@@ -399,7 +399,7 @@
                 <h3>
                     Home Score
                 </h3>
-                <p class="leddisplay" id="ScoreHome_count">200</p>
+                <p class="leddisplay" id="ScoreHome_count">0</p>
 				<div class="btn-group" role="group" aria-label="Basic example">
 				  <a href="javascript:ScoreHome_change('plus',1)" class="btn btn-secondary">+ 1</a>
 				  <a href="javascript:ScoreHome_change('zero',0)" class="btn btn-secondary">Zero</a>
@@ -412,7 +412,7 @@
                 <h3>
                     Innings
                 </h3>
-                <p class="leddisplay" id="Innings_count">442</p>
+                <p class="leddisplay" id="Innings_count">1</p>
 				<div class="btn-group" role="group" aria-label="Basic example">
 				  <a href="javascript:Innings_change('top',0)" class="btn btn-secondary">Top</a>
 				  <a href="javascript:Innings_change('plus',1)" class="btn btn-secondary">+ 1</a>
@@ -427,7 +427,7 @@
                 <h3>
                     Visitor Score
                 </h3>
-                <p class="leddisplay" id="ScoreVisitor_count">23</p>
+                <p class="leddisplay" id="ScoreVisitor_count">0</p>
 				<div class="btn-group" role="group" aria-label="Basic example">
 				  <a href="javascript:ScoreVisitor_change('plus',1)" class="btn btn-secondary">+ 1</a>
 				  <a href="javascript:ScoreVisitor_change('zero',0)" class="btn btn-secondary">Zero</a>
@@ -491,7 +491,7 @@
 			// Initally set the scores to zero
 			$('#ScoreHome_count').html(pad(ScoreHome, 2));
 			//$('$Topbot').html(pad(Topbot, 1));
-			$('#Innings_count').html(pad(Innings,2));
+			 $('#Innings_count').html(padInnings(Innings,Topbot));
 			$('#ScoreVisitor_count').html(pad(ScoreVisitor,2));
 			$('#Balls_count').html(pad(Balls,1));
 			$('#Strikes_count').html(pad(Strikes,1));
@@ -517,7 +517,7 @@
 					}
 						// Add any greyed out digits to the web interface
 						$('#ScoreHome_count').html(pad(ScoreHome,2));
-						$('#Innings_count').html(pad(Innings,2));
+						 $('#Innings_count').html(padInnings(Innings,Topbot));
 						$('#ScoreVisitor_count').html(pad(ScoreVisitor,2));
 						$('#Balls_count').html(pad(Balls,1));
 						$('#Strikes_count').html(pad(Strikes,1));
