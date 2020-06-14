@@ -13,7 +13,7 @@
 	include "php_serial.class.php";
 
 	$ScoreHome=substr($_GET['data'], 0, 2); //Get first 2 digits for score Homes
-	$Topbot=substr($GET['data'], 2, 1); //Get the next digit to indicate Top or Bottom of innings
+	$Topbot=substr($_GET['data'], 2, 1); //Get the next digit to indicate Top or Bottom of innings
 	$Innings=substr($_GET['data'], 3, 2); //Get next 2 digits: that is the Inning
 	$ScoreVisitor=substr($_GET['data'], 5, 2); //Get next 2 digits: the Score for the Namur Angels (Visitor)
 	$Balls=substr($_GET['data'], 7, 1); //Get next 1 digit: that is the Balls (max 3)
