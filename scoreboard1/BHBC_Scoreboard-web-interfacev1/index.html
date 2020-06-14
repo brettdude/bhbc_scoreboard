@@ -486,7 +486,8 @@
 	<script>
 		$( document ).ready(function() {
 			// Initally set the scores to zero
-		    $('#ScoreHome_count').html(pad(ScoreHome, 2));
+			$('#ScoreHome_count').html(pad(ScoreHome, 2));
+			$('$Topbot').html(pad(Topbot1));
 			$('#Innings_count').html(pad(Innings,2));
 			$('#ScoreVisitor_count').html(pad(ScoreVisitor,2));
 			$('#Balls_count').html(pad(Balls,1));
@@ -501,11 +502,12 @@
                 success: function (data) { 
 					if(data.length>0) { // If it has, update the scores with the saved data
 						ScoreHome=Number(data.substring(0, 2));
-						Innings=Number(data.substring(2, 4));
-						ScoreVisitor=Number(data.substring(4, 6));
-						Balls=Number(data.substring(6, 7));
-						Strikes=Number(data.substring(7, 8));
-						Outs=Number(data.substring(8, 9));
+						Topbot=Number(data.substring(2, 3));
+						Innings=Number(data.substring(3, 5));
+						ScoreVisitor=Number(data.substring(5, 7));
+						Balls=Number(data.substring(7, 8));
+						Strikes=Number(data.substring(8, 9));
+						Outs=Number(data.substring(9,10));
 						submitForm();
 					} else {
 						// If there isn't anything, don't do anything
