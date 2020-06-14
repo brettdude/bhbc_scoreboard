@@ -59,6 +59,7 @@
 	<script>
 		// Initally set the scores to zero
 		var Strikes=0;
+		var Topbot=0;
 		var Innings=0;
 		var Balls=0;
 		var ScoreHome=0;
@@ -151,9 +152,11 @@
 			}
 			if(direction=="top") {
 				Topbot=0;
+				$('#Topbot').html(pad(Topbot,1));
 			}
 			if(direction=="bottom") {
 				Topbot=1;
+				$('#Topbot').html(pad(Topbot,1));
 			}
 			updatetimer=5;
 		}
