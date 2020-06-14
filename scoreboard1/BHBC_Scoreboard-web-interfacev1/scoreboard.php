@@ -66,7 +66,7 @@
   
 	//uncomment the following line is you want the second line of the scoreboard to be over, wickets target
 	//$tempString="4,".$batsmana.",".$total.",".$batsmanb.",".$overs.",".$wicketsOnes.",".$target."#";
-	$tempString="4,".$ScoreHome.",".$Innings.",".$ScoreVisitor.",".$Balls1.",".$Balls2.",".$Strikes.",".$Outs."#";
+	$tempString="4,".$ScoreHome.",".$Topbot.",".$Innings.",".$ScoreVisitor.",".$Balls1.",".$Balls2.",".$Strikes.",".$Outs."#";
 	echo $tempString;
 	#echo($tempString."<br>");
 	$serial->deviceOpen();
