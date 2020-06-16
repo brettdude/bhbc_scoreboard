@@ -116,7 +116,7 @@ void update_scoreboard()
     cmdMessenger.sendCmd(kACK, ScoreVisitorHeading);
     cmdMessenger.sendCmd(kACK, ScoreVisitor);
     
-    // Innigs Top or Bottom
+    // Innings Top or Bottom
     memset(buf, '\0', 4);
     cmdMessenger.copyString(buf, 4);
     strcpy(Topbot,buf);
