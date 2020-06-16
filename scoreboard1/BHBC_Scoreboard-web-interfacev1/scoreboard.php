@@ -29,6 +29,10 @@
 	if($ScoreHome==0) { $ScoreHome="-0"; } else { $ScoreHome = ltrim($ScoreHome, '0'); $ScoreHome = str_pad($ScoreHome, 2, '-', STR_PAD_LEFT); }
 	if($ScoreVisitor==0) { $ScoreVisitor="-0"; } else { $ScoreVisitor = ltrim($ScoreVisitor, '0'); $ScoreVisitor = str_pad($ScoreVisitor, 2, '-', STR_PAD_LEFT); }
 	if($Innings==0) { $Innings="-0"; } else { $Innings = ltrim($Innings, '0'); $Innings = str_pad($Innings, 2, '-', STR_PAD_LEFT); }
+	if($Strikes==1) { $Strikes=7; }
+	if($Strikes==2) { $Strikes=8; }
+	if($Outs==1) { $Outs=7; }
+	if($Outs==2) { $Outs=8; }
 	
 	// Code to turn the Balls value into 3-bar LED "dots"
 	// Dot 1 will be connected to pins for A, B, and C, and Dot 2 will connect to D, E, and F.
