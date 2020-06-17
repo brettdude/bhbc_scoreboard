@@ -95,8 +95,10 @@ enum
 };
 
 // set up 2 groups of shifters
-Shifter shifterSet1(5, 22, 26, 30);  //Visitor Score, Inning, Home Score + Balls, Strikes and Outs controlled by pins 22,26 and 30
-Shifter shifterSet2(4, 34, 38, 42);  //Balls (LED Groups 1 & 2), Strikes and Outs controlled by pins 34,38 and 42
+Shifter shifterSet1(5, 2, 3, 4);  //Visitor Score, Inning, Home Score + Balls, Strikes and Outs controlled by pins 22,26 and 30
+Shifter shifterSet2(4, 5, 6, 7);  //Balls (LED Groups 1 & 2), Strikes and Outs controlled by pins 34,38 and 42
+//Shifter shifterSet1(5, 22, 26, 30);  //Visitor Score, Inning, Home Score + Balls, Strikes and Outs controlled by pins 22,26 and 30
+//Shifter shifterSet2(4, 34, 38, 42);  //Balls (LED Groups 1 & 2), Strikes and Outs controlled by pins 34,38 and 42
 
 
 void update_scoreboard()
