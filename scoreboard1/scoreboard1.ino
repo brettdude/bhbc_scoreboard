@@ -114,9 +114,9 @@ void update_scoreboard()
     
     // Visitors Score
     cmdMessenger.copyString(buf, 4);
-    strcpy(ScoreVisitor,buf);
-    cmdMessenger.sendCmd(kACK, ScoreVisitorHeading);
-    cmdMessenger.sendCmd(kACK, ScoreVisitor);
+    strcpy(ScoreHome,buf);
+    cmdMessenger.sendCmd(kACK, ScoreHomeHeading);
+    cmdMessenger.sendCmd(kACK, ScoreHome);
     
     // Innings Top or Bottom
     memset(buf, '\0', 4);
@@ -135,9 +135,9 @@ void update_scoreboard()
     // Home Score
     memset(buf, '\0', 4);
     cmdMessenger.copyString(buf, 4);
-    strcpy(ScoreHome,buf);
-    cmdMessenger.sendCmd(kACK, ScoreHomeHeading);
-    cmdMessenger.sendCmd(kACK, ScoreHome);
+    strcpy(ScoreVisitor,buf);
+    cmdMessenger.sendCmd(kACK, ScoreVisitorHeading);
+    cmdMessenger.sendCmd(kACK, ScoreVisitor);
        
   
     
