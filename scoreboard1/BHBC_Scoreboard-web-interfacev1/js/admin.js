@@ -28,7 +28,7 @@
 								type: "GET",
 								url: "reboot.php",
 								cache: false,
-								success: function () { window.location="http://localhost/reboot.php"; },
+								success: function () { window.location="http://scoreboard/reboot.php"; },
 								error: function () {}
 							});
 						} else {
@@ -79,7 +79,7 @@
 								type: "GET",
 								url: "shutdown.php",
 								cache: false,
-								success: function () { window.location="http://localhost/shutdown.php"; },
+								success: function () { window.location="http://scoreboard/shutdown.php"; },
 								error: function () {}
 							});
 						} else {
