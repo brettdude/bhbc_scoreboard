@@ -33,6 +33,7 @@
 	if($Strikes==2) { $Strikes=8; }
 	if($Outs==1) { $Outs=7; }
 	if($Outs==2) { $Outs=8; }
+	if($Topbot==0) { $Topbot=7; } else { $Topbot = L; }
 	
 	// Code to turn the Balls value into 3-bar LED "dots"
 	// Dot 1 will be connected to pins for A, B, and C, and Dot 2 will connect to D, E, and F.
