@@ -29,8 +29,10 @@
 	if($ScoreHome==0) { $ScoreHome="-0"; } else { $ScoreHome = ltrim($ScoreHome, '0'); $ScoreHome = str_pad($ScoreHome, 2, '-', STR_PAD_LEFT); }
 	if($ScoreVisitor==0) { $ScoreVisitor="-0"; } else { $ScoreVisitor = ltrim($ScoreVisitor, '0'); $ScoreVisitor = str_pad($ScoreVisitor, 2, '-', STR_PAD_LEFT); }
 	if($Innings==0) { $Innings="-0"; } else { $Innings = ltrim($Innings, '0'); $Innings = str_pad($Innings, 2, '-', STR_PAD_LEFT); }
+	if($Strikes==0) { $Strikes="-"; }
 	if($Strikes==1) { $Strikes=7; }
 	if($Strikes==2) { $Strikes=8; }
+	if($Outs==0) { $Outs="-"; }
 	if($Outs==1) { $Outs=7; }
 	if($Outs==2) { $Outs=8; }
 	if($Topbot==0) { $Topbot=7; } else { $Topbot = L; }
@@ -41,16 +43,16 @@
 
 	switch ($Balls) {
 		case 0:
-			$Balls1=0;
-			$Balls2=0;
+			$Balls1="-";
+			$Balls2="-";
 		break;
 		case 1:
 			$Balls1=7;
-			$Balls2=0;
+			$Balls2="-";
 		break;
 		case 2:
 			$Balls1=8;
-			$Balls2=0;
+			$Balls2="-";
 		break;
 		case 3:
 			$Balls1=8;
