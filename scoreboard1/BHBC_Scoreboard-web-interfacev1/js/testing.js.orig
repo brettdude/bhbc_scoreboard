@@ -4,16 +4,16 @@ function testScoreboard() {
 	
 	if(testcount==-1) {
 		// Turn all the LEDs off
-		updateScoreboard_Testing('--','-','--','--','-','-','-','-')
-		var testData = '--,-,--,--,-,-,-,-'; 
+		updateScoreboard_Testing('---','-','--','---','---','---')
+		var testData = '---' + '-' + '--' + '---' + '---' + '---'; 
 		$.ajax({type: "GET",url: "scoreboard.php?data=" + testData,cache: false,success: function () { 
 			testcount++;
 			setTimeout(function () {testScoreboard();},1000);
 		}});
 	} else if(testcount==9) {
 		// Sets the scores to 9, however, checks if Test Mode has been disabled as well
-		updateScoreboard_Testing(testcount + testcount + ',' + testcount + ',' + testcount + testcount + ',' + testcount + testcount + ',' + testcount + ',' + testcount + ',' + testcount + ',' + testcount)
-		var testData = testcount + testcount + ',' + testcount + ',' + testcount + testcount + ',' + testcount + testcount + ',' + testcount + ',' + testcount + ',' + testcount + ',' + testcount; 
+		updateScoreboard_Testing(testcount + '' + testcount + '' + testcount,'' + testcount + '',testcount + '' + testcount,testcount + '' + testcount + '' + testcount,testcount + '' + testcount + '' + testcount,testcount + '' + testcount + '' + testcount)
+		var testData = testcount + '' + testcount + '' + testcount + '' + testcount + '' + testcount + '' + testcount + '' + testcount + '' + testcount + '' + testcount + '' + testcount + '' + testcount + '' + testcount + '' + testcount + '' + testcount + '' + testcount + ''; 
 		$.ajax({type: "GET",url: "scoreboard.php?data=" + testData,cache: false,success: function () { 
 			if(testmode==1) {
 				// If Test Mode is still enabled, set the count to -1 to start again
@@ -23,19 +23,19 @@ function testScoreboard() {
 				// If Test Mode has been disabled, set the count to -1 and update the scores to what they were before Test Mode was enabled
 				testcount=-1;
 				$('#notification').html('');
-				$('#ScoreHome_count').html(pad(ScoreHome, 2));
-				$('#Innings_count').html(padInnings(Innings,Topbot));
-				$('#ScoreVisitor_count').html(pad(ScoreVisitor,2));
-				$('#Balls_count').html(pad(Balls,1));
-				$('#Strikes_count').html(pad(Strikes,1));
-				$('#Outs_count').html(pad(Outs,1));
+				$('#total_count').html(pad(total,3));
+				$('#wickets_count').html(pad(wickets,1));
+				$('#overs_count').html(pad(overs,2));
+				$('#batsa_count').html(pad(batsa,3));
+				$('#batsb_count').html(pad(batsb,3));
+				$('#target_count').html(pad(target,3));
 				submitForm(); // Update the scoreboard
 			}
 		}});
 	} else {
 		// Sets the score to the current value of 'testcount' and then adds 1 to this value, wait for 1 second and run again
-		updateScoreboard_Testing(testcount + testcount + ',' + testcount + ',' + testcount + testcount + ',' + testcount + testcount + ',' + testcount + ',' + testcount + ',' + testcount + ',' + testcount)
-		var testData = testcount + testcount + ',' + testcount + ',' + testcount + testcount + ',' + testcount + testcount + ',' + testcount + ',' + testcount + ',' + testcount + ',' + testcount; 
+		updateScoreboard_Testing(testcount + '' + testcount + '' + testcount,'' + testcount + '',testcount + '' + testcount,testcount + '' + testcount + '' + testcount,testcount + '' + testcount + '' + testcount,testcount + '' + testcount + '' + testcount)
+		var testData = testcount + '' + testcount + '' + testcount + '' + testcount + '' + testcount + '' + testcount + '' + testcount + '' + testcount + '' + testcount + '' + testcount + '' + testcount + '' + testcount + '' + testcount + '' + testcount + '' + testcount + '';  
 		$.ajax({type: "GET",url: "scoreboard.php?data=" + testData,cache: false,success: function () { 
 			testcount++;
 			setTimeout(function () {testScoreboard();},1000);

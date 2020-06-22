@@ -490,8 +490,7 @@
 		$( document ).ready(function() {
 			// Initally set the scores to zero
 			$('#ScoreHome_count').html(pad(ScoreHome, 2));
-			//$('$Topbot').html(pad(Topbot, 1));
-			 $('#Innings_count').html(padInnings(Innings,Topbot));
+			$('#Innings_count').html(padInnings(Innings,Topbot));
 			$('#ScoreVisitor_count').html(pad(ScoreVisitor,2));
 			$('#Balls_count').html(pad(Balls,1));
 			$('#Strikes_count').html(pad(Strikes,1));
@@ -517,7 +516,7 @@
 					}
 						// Add any greyed out digits to the web interface
 						$('#ScoreHome_count').html(pad(ScoreHome,2));
-						 $('#Innings_count').html(padInnings(Innings,Topbot));
+						$('#Innings_count').html(padInnings(Innings,Topbot));
 						$('#ScoreVisitor_count').html(pad(ScoreVisitor,2));
 						$('#Balls_count').html(pad(Balls,1));
 						$('#Strikes_count').html(pad(Strikes,1));
