@@ -119,7 +119,7 @@
 				Balls_change('zero','admin');
 				Strikes_change('zero','admin');
 				Outs_change('zero','admin');
-				updatetimer=5;
+				updatetimer=3;
 			  }
 			})
 		}
