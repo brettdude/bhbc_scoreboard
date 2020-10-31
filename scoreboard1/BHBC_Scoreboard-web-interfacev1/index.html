@@ -88,7 +88,6 @@
 		            closeOnConfirm: true
 		        }).then(function (isConfirm) {
 		            if (isConfirm) {
-		                if (Strikes + amount == 3) {
 							if (Outs = 2){
 								//Innings Change here
 							} else {
@@ -100,7 +99,7 @@
 								$('#Balls_count').html(pad(Balls, 1));
 							}
 						}
-		            }
+		            
 				})		        
 			} else {
 		            Strikes = Strikes + amount;
