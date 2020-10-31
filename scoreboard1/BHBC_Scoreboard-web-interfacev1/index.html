@@ -110,7 +110,7 @@
 		            }
 		        })
 		    }
-		    updatetimer = 5;
+		    updatetimer = 3;
 		}
 
 		
@@ -158,7 +158,7 @@
 				Topbot=1;
 				$('#Innings_count').html(padInnings(Innings,Topbot));
 			}
-			updatetimer=5;
+			updatetimer=3;
 		}
 		
 		function Outs_change(direction,amount) {
@@ -197,7 +197,7 @@
 					  }
 					})
 			}
-			updatetimer=5;
+			updatetimer=3;
 		}
 		
 		function Balls_change(direction, amount) {
@@ -236,7 +236,7 @@
 		            }
 		        })
 		    }
-		    updatetimer = 5;
+		    updatetimer = 3;
 		}
 		
 		function ScoreHome_change(direction,amount) {
@@ -276,7 +276,7 @@
 					    }
 					})
 			}
-			updatetimer=5;
+			updatetimer=3;
 		}
 		
 		function ScoreVisitor_change(direction, amount) {
@@ -316,7 +316,7 @@
 		            }
 		        })
 		    }
-		    updatetimer = 5;
+		    updatetimer = 3;
 		}
 		
 		// Check to see if the scoreboard needs updating
@@ -324,7 +324,7 @@
 			if(updatetimer=="done") {
 				//There are no updates pending, don't do anything
 			} else {
-				if(updatetimer=="5") {
+				if(updatetimer=="3") {
 					if(growlid) {  } else { //Is there a notification already displayed, if there is we don't want another so do nothing else we want to show one
 					growlid=$.growl({ title: "Update Pending", message: "<span id='timetoupdate'>The scoreboard will be updated in 5 seconds...</span>", fixed: true });
 					}
