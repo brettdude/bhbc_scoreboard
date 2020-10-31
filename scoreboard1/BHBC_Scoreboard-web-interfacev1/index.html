@@ -77,8 +77,29 @@
 		function Strikes_change(direction, amount) {
 		    if (direction == "plus") {
 		        if (Strikes + amount > 2) {
-		            swal('Cannot be done!', 'Strikes cannot be greater than 2', 'warning')
-		        } else {
+					swal({
+		            title: 'Confirmation',
+		            text: "Confirm Strikeout. This will rest the Ball and Strike count, and increase the Out count/chnage innings",
+		            type: 'question',
+		            showCancelButton: true,
+		            confirmButtonColor: '#3085d6',
+		            cancelButtonColor: '#d33',
+		            confirmButtonText: 'Confirmed',
+		            closeOnConfirm: true
+		        }).then(function (isConfirm) {
+		            if (isConfirm) {
+		                if (Strikes + amount == 3) {
+							Innings=Innings+amount;
+							Topbot=0;
+							Strikes=0
+							Balls=0
+						}
+						$('#Innings_count').html(padInnings(Innings,Topbot));
+						$('#Strikes_count').html(pad(Strikes, 1));
+						$('#Balls_count').html(pad(Balls, 1));
+		            }
+				})		        
+			} else {
 		            Strikes = Strikes + amount;
 		            $('#Strikes_count').html(pad(Strikes, 1));
 		        }
