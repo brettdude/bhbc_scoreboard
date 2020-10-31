@@ -130,7 +130,23 @@
 					$('#Innings_count').html(padInnings(Innings,Topbot));
 				}
 			}
-			if(direction=="zero") {
+		} else {
+			if(direction=="plus") {
+				if(Innings+amount>99) {
+					swal('Cannot be done!','Innings cannot be greater than 99','warning')
+				} else {
+					Innings=Innings+amount;
+					Topbot=0;
+					$('#Innings_count').html(padInnings(Innings,Topbot));
+				}
+			}
+			if(direction=="minus") {
+				Topbot=0;
+				$('#Innings_count').html(padInnings(Innings,Topbot));
+				
+			}
+		}
+		if(direction=="zero") {
 				if(amount=="admin") { Innings=0;  $('#Innings_count').html(padInnings(Innings,Topbot)); return; }
 				swal({
 					  title: 'You sure?',
@@ -148,22 +164,7 @@
 					  }
 					})
 			}
-		} else {
-			if(direction=="plus") {
-				if(Innings+amount>99) {
-					swal('Cannot be done!','Innings cannot be greater than 99','warning')
-				} else {
-					Innings=Innings+amount;
-					Topbot=0;
-					$('#Innings_count').html(padInnings(Innings,Topbot));
-				}
-			}
-			if(direction=="minus") {
-				Topbot=0;
-				$('#Innings_count').html(padInnings(Innings,Topbot));
-				
-			}
-		}
+
 //			if(direction=="top") {
 //				Topbot=0;
 //				$('#Innings_count').html(padInnings(Innings,Topbot));
