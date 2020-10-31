@@ -115,35 +115,13 @@
 
 		
 		function Innings_change(direction,amount) {
-			if(Topbot==0) {
 			if(direction=="plus") {
-//				if(Innings+amount>99) {
-//					swal('Cannot be done!','Innings cannot be greater than 99','warning')
-//				} else {
-//					Innings=Innings+amount;
-//					$('#Innings_count').html(padInnings(Innings,Topbot));
-//				}
-					swal({
-					  title: 'You sure?',
-					  text: "This will CHANGE to the Bottom of the Innings. Ball, Strikes and Outs will be reset to 0",
-					  type: 'question',
-					  showCancelButton: true,
-					  confirmButtonColor: '#3085d6',
-					  cancelButtonColor: '#d33',
-					  confirmButtonText: 'Yes, change it!',
-					  closeOnConfirm: true
-					}).then(function(isConfirm) {
-					  if (isConfirm) {
-						Topbot=1;
-						$('#Innings_count').html(padInnings(Innings,Topbot));
-						Strikes = 0;
-						$('#Strikes_count').html(pad(Strikes, 1));
-						Balls = 0;
-		                $('#Balls_count').html(pad(Balls, 1));
-						Outs=0;
-						$('#Outs_count').html(pad(Outs,1));
-					  }
-					})
+				if(Innings+amount>99) {
+					swal('Cannot be done!','Innings cannot be greater than 99','warning')
+				} else {
+					Innings=Innings+amount;
+					$('#Innings_count').html(padInnings(Innings,Topbot));
+				}
 			}
 			if(direction=="minus") {
 				if(Innings-amount<0) {
@@ -154,9 +132,6 @@
 					$('#Innings_count').html(padInnings(Innings,Topbot));
 				}
 			}
-		} else {
-
-		}
 			if(direction=="zero") {
 				if(amount=="admin") { Innings=0;  $('#Innings_count').html(padInnings(Innings,Topbot)); return; }
 				swal({
@@ -175,14 +150,14 @@
 					  }
 					})
 			}
-//			if(direction=="top") {
-//				Topbot=0;
-//				$('#Innings_count').html(padInnings(Innings,Topbot));
-//			}
-//			if(direction=="bottom") {
-//				Topbot=1;
-//				$('#Innings_count').html(padInnings(Innings,Topbot));
-//			}
+			if(direction=="top") {
+				Topbot=0;
+				$('#Innings_count').html(padInnings(Innings,Topbot));
+			}
+			if(direction=="bottom") {
+				Topbot=1;
+				$('#Innings_count').html(padInnings(Innings,Topbot));
+			}
 			updatetimer=3;
 		}
 		
