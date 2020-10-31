@@ -78,7 +78,7 @@
 		    if (direction == "plus") {
 		        if (Strikes + amount > 2) {
 					swal({
-		            title: 'Confirmation',
+		            title: 'Strikeout',
 		            text: "Confirm Strikeout. This will rest the Ball and Strike count, and increase the Out count/chnage innings",
 		            type: 'question',
 		            showCancelButton: true,
@@ -89,14 +89,17 @@
 		        }).then(function (isConfirm) {
 		            if (isConfirm) {
 		                if (Strikes + amount == 3) {
-							Innings=Innings+amount;
-							Topbot=0;
-							Strikes=0
-							Balls=0
+							if (Outs = 2){
+								//Innings Change here
+							} else {
+								Strikes = 0;
+								Balls = 0;
+								Outs = Outs + amount;
+								$('#Strikes_count').html(pad(Strikes, 1));
+								$('#Outs_count').html(pad(Outs,1));
+								$('#Balls_count').html(pad(Balls, 1));
+							}
 						}
-						$('#Innings_count').html(padInnings(Innings,Topbot));
-						$('#Strikes_count').html(pad(Strikes, 1));
-						$('#Balls_count').html(pad(Balls, 1));
 		            }
 				})		        
 			} else {
