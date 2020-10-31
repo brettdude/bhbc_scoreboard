@@ -115,13 +115,10 @@
 
 		
 		function Innings_change(direction,amount) {
+			if(Topbot=0) {
 			if(direction=="plus") {
-				if(Innings+amount>99) {
-					swal('Cannot be done!','Innings cannot be greater than 99','warning')
-				} else {
-					Innings=Innings+amount;
-					$('#Innings_count').html(padInnings(Innings,Topbot));
-				}
+				Topbot=1;
+				$('#Innings_count').html(padInnings(Innings,Topbot));
 			}
 			if(direction=="minus") {
 				if(Innings-amount<0) {
@@ -129,6 +126,7 @@
 					$('#Innings_count').html(padInnings(Innings,Topbot));
 				} else {
 					Innings=Innings-amount;
+					Topbot=1;
 					$('#Innings_count').html(padInnings(Innings,Topbot));
 				}
 			}
@@ -150,14 +148,31 @@
 					  }
 					})
 			}
-			if(direction=="top") {
+		} else {
+			if(direction=="plus") {
+				if(Innings+amount>99) {
+					swal('Cannot be done!','Innings cannot be greater than 99','warning')
+				} else {
+					Innings=Innings+amount;
+					Topbot=0;
+					$('#Innings_count').html(padInnings(Innings,Topbot));
+				}
+			}
+			if(direction=="minus") {
 				Topbot=0;
 				$('#Innings_count').html(padInnings(Innings,Topbot));
+				}
 			}
-			if(direction=="bottom") {
-				Topbot=1;
-				$('#Innings_count').html(padInnings(Innings,Topbot));
-			}
+
+		}
+//			if(direction=="top") {
+//				Topbot=0;
+//				$('#Innings_count').html(padInnings(Innings,Topbot));
+//			}
+//			if(direction=="bottom") {
+//				Topbot=1;
+//				$('#Innings_count').html(padInnings(Innings,Topbot));
+//			}
 			updatetimer=3;
 		}
 		
