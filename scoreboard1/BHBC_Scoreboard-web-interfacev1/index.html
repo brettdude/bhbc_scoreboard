@@ -147,7 +147,7 @@
 			}
 		}
 		if(direction=="zero") {
-				if(amount=="admin") { Innings=0;  $('#Innings_count').html(padInnings(Innings,Topbot)); return; }
+				if(amount=="admin") { Innings=0; Topbot=0;  $('#Innings_count').html(padInnings(Innings,Topbot)); return; }
 				swal({
 					  title: 'You sure?',
 					  text: "This will ZERO the Innings",
