@@ -103,11 +103,11 @@
 								Outs = Outs + amount;
 							}
 							$('#Outs_count').html(pad(Outs,1));
+							Strikes = 0;
+							Balls = 0;
+							$('#Strikes_count').html(pad(Strikes, 1));
+							$('#Balls_count').html(pad(Balls, 1));
 						}
-						Strikes = 0;
-						Balls = 0;
-						$('#Strikes_count').html(pad(Strikes, 1));
-						$('#Balls_count').html(pad(Balls, 1));
 				})
 			} else {
 		            Strikes = Strikes + amount;
