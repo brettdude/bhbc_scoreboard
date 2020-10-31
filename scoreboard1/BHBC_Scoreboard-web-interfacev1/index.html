@@ -79,7 +79,7 @@
 		        if (Strikes + amount > 2) {
 					swal({
 		            title: 'Strikeout',
-		            text: "Confirm Strikeout. This will rest the Ball and Strike count, and increase the Out count/change innings",
+		            text: "Confirm Strikeout. This will rest the Ball and Strike count, and increase the Out count or change innings",
 		            type: 'question',
 		            showCancelButton: true,
 		            confirmButtonColor: '#3085d6',
@@ -250,12 +250,25 @@
 		function Balls_change(direction, amount) {
 		    if (direction == "plus") {
 		        if (Balls + amount > 3) {
-		            swal('Cannot be done!', 'Balls cannot be greater than 3', 'warning')
-		        } else {
-		            Balls = Balls + amount;
-		            $('#Balls_count').html(pad(Balls, 1));
-		        }
-		    }
+					swal({
+		            title: 'Walk',
+		            text: "Confirm Ball 4 Walk. This will rest the Ball and Strike count",
+		            type: 'question',
+		            showCancelButton: true,
+		            confirmButtonColor: '#3085d6',
+		            cancelButtonColor: '#d33',
+		            confirmButtonText: 'Confirmed',
+		            closeOnConfirm: true
+		        }).then(function (isConfirm) {
+		            if (isConfirm) {
+							Strikes = 0;
+							Balls = 0;
+							$('#Strikes_count').html(pad(Strikes, 1));
+							$('#Balls_count').html(pad(Balls, 1));
+						}
+					})
+				}
+			}
 		    if (direction == "minus") {
 		        if (Balls - amount < 0) {
 		            Balls = 0;
