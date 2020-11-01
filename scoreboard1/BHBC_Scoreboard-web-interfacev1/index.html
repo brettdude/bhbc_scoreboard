@@ -60,7 +60,7 @@
 		// Initally set the scores to zero
 		var Strikes=0;
 		var Topbot=0;
-		var Innings=0;
+		var Innings=1;
 		var Balls=0;
 		var ScoreHome=0;
 		var ScoreVisitor=0;
@@ -152,8 +152,8 @@
 				$('#Innings_count').html(padInnings(Innings,Topbot));
 			}
 			if(direction=="minus") {
-				if(Innings-amount<0) {
-					Innings=0;
+				if(Innings-amount<1) {
+					Innings=1;
 					$('#Innings_count').html(padInnings(Innings,Topbot));
 				} else {
 					Innings=Innings-amount;
@@ -178,7 +178,7 @@
 			}
 		}
 		if(direction=="zero") {
-				if(amount=="admin") { Innings=0; Topbot=0;  $('#Innings_count').html(padInnings(Innings,Topbot)); return; }
+				if(amount=="admin") { Innings=1; Topbot=0;  $('#Innings_count').html(padInnings(Innings,Topbot)); return; }
 				swal({
 					  title: 'You sure?',
 					  text: "This will ZERO the Innings",
@@ -190,7 +190,7 @@
 					  closeOnConfirm: true
 					}).then(function(isConfirm) {
 					  if (isConfirm) {
-						Innings=0;
+						Innings=1;
 						Topbot=0;
 						$('#Innings_count').html(padInnings(Innings,Topbot));
 					  }
