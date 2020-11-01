@@ -79,7 +79,7 @@
 		        if (Strikes + amount > 2) {
 					swal({
 		            title: 'Strikeout',
-		            text: "Confirm Strikeout. This will rest the Ball and Strike count, and increase the Out count or change innings",
+		            text: "Confirm Strikeout. This will reset the Ball and Strike count, and increase the Out count or change innings",
 		            type: 'question',
 		            showCancelButton: true,
 		            confirmButtonColor: '#3085d6',
@@ -210,9 +210,35 @@
 		
 		function Outs_change(direction,amount) {
 			if(direction=="plus") {
-				if(Outs+amount>2) {
-					swal('Cannot be done!','Outs cannot be greater than 2','warning')
-				} else {
+		        if (Outs + amount > 2) {
+					swal({
+		            title: 'Sideout',
+		            text: "Confirm Sideout. This will reset the Ball,Strike and Out count, and change the innings",
+		            type: 'question',
+		            showCancelButton: true,
+		            confirmButtonColor: '#3085d6',
+		            cancelButtonColor: '#d33',
+		            confirmButtonText: 'Confirmed',
+		            closeOnConfirm: true
+		        }).then(function (isConfirm) {
+		            if (isConfirm) {
+								if (Topbot == 0) {
+									Topbot = 1;
+									$('#Innings_count').html(padInnings(Innings,Topbot));
+								} else {
+									Innings=Innings+amount;
+									Topbot=0;
+									$('#Innings_count').html(padInnings(Innings,Topbot));
+								}
+							} 
+							Outs = 0;
+							Strikes = 0;
+							Balls = 0;
+							$('#Outs_count').html(pad(Outs,1));
+							$('#Strikes_count').html(pad(Strikes, 1));
+							$('#Balls_count').html(pad(Balls, 1));
+				})
+			} else {
 					Outs=Outs+amount;
 					$('#Outs_count').html(pad(Outs,1));
 				}
@@ -252,7 +278,7 @@
 		        if (Balls + amount > 3) {
 					swal({
 		            title: 'Walk',
-		            text: "Confirm Ball 4 Walk. This will rest the Ball and Strike count",
+		            text: "Confirm Ball 4 Walk. This will reset the Ball and Strike count",
 		            type: 'question',
 		            showCancelButton: true,
 		            confirmButtonColor: '#3085d6',
