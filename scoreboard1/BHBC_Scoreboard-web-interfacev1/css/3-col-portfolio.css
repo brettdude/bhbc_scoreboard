@@ -19,7 +19,7 @@ footer {
 
 @font-face {
 	font-family: LEDText;
-    src: url(../fonts/digital-7.ttf);
+    src: url(../fonts/digital-7-mono.ttf);
 }
 
 .leddisplay {
